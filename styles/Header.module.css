@@ -1,0 +1,21 @@
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(224, 40, 40);
+    padding: 1vh 1.5vw;
+    align-items: center;
+}
+
+.icon {
+    border-radius: 50%;
+    width: 3vw;
+}
+
+.InformationList {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 15vw;
+}
