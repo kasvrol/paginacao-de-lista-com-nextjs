@@ -5,4 +5,4 @@
 <p>npm run dev</p>
 <p>localhost:3000</p>
 
-<img  src="https://github.com/kasvrol/processo-seletivo-at-group/blob/main/public/gif.gif" alt="gif do front respondendo a paginação criada"/>
+<frame  src="https://github.com/kasvrol/processo-seletivo-at-group/blob/main/public/gif.gif" alt="gif do front respondendo a paginação criada"/>
