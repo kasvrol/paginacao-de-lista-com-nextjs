@@ -1,9 +1,6 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
+import Cards from "../components/cards";
 import styles from "../styles/Home.module.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
     return (
@@ -16,7 +13,9 @@ export default function Home() {
                 />
                 <link rel="icon" href="/cube.png" />
             </Head>
-            <main className={styles.main}></main>
+            <main className={styles.main}>
+                <Cards />
+            </main>
         </>
     );
 }
