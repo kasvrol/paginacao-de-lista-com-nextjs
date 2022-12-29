@@ -1,0 +1,41 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.NoCardsList {
+}
+
+.CardInformation {
+    list-style: none;
+    display: grid;
+
+    grid-template-rows: 1fr;
+    grid-template-columns: 4fr 1fr 1fr 1fr 1fr;
+    gap: 3vw;
+    height: 100%;
+    text-align: center;
+    padding: 3vh 0;
+    font-size: 1.8vh;
+}
+
+.CardContainer {
+    display: grid;
+
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr;
+
+    gap: 3vw;
+    height: 100%;
+    list-style: none;
+    text-align: center;
+}
+
+.CardContainer > * {
+    padding-bottom: 2vh;
+}
+
+.CardContainer img {
+    width: 3vw;
+}
