@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "../../styles/Cards.module.css";
-export default function Cards() {
+
+export default function Cards({ qtdProjects, projectsPage }) {
     const reposGitHubAPI = "https://api.github.com/users/kasvrol/repos";
     const [projects, setProjects] = useState();
 
@@ -36,6 +37,20 @@ export default function Cards() {
     };
 
     if (projects) {
+        qtdProjects(projects.length);
+
+        const showProjects = () => {
+            let showProjects = [];
+            let oneProject = projectsPage * 5 - 5;
+            let totalPages = projectsPage * 5;
+            for (let index = 0; index < totalPages; index++) {
+                if (oneProject <= index) {
+                    showProjects.push(projects[index]);
+                }
+            }
+            return showProjects;
+        };
+
         return (
             <section className={styles.CardsList}>
                 <ul className={styles.CardInformation}>
@@ -45,7 +60,7 @@ export default function Cards() {
                     <li>Id</li>
                     <li>Tamanho</li>
                 </ul>
-                {projects.map((element) => (
+                {showProjects().map((element) => (
                     <ul key={element.id} className={styles.CardContainer}>
                         <li>
                             <img
