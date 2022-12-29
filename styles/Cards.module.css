@@ -5,6 +5,9 @@
 }
 
 .NoCardsList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .CardInformation {
