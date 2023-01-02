@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "../../styles/Cards.module.css";
 
-export default function Cards({ projectsPage, projects, projectsLength }) {
+export default function Cards({ projectsPage, projects }) {
     const [showProjects, setShowProjects] = useState([]);
 
     useEffect(() => {
