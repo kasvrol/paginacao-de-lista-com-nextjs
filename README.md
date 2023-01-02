@@ -11,9 +11,19 @@
 <p>O projeto foi criado em 3h, após entrega para análise e retorno do processo, elaborei mudanças para o manter como projeto de exposição e agregar em meu portfólio.</p>
 
 <h3>Rápida introdução de como rodar o projeto:</h3>
-<h3>clone o projeto e digite os seguintes comandos:</h3>
-<p>npm i</p>
-<p>npm run dev</p>
-<p>localhost:3000</p>
+<p>Clone o projeto no terminal do git:</p>
+git clone https://github.com/kasvrol/paginacao-de-lista-com-nextjs
+
+<p>Entre no diretório do projeto</p>
+cd ./paginacao-de-lista-com-nextjs
+
+<p>Instale as dependências do projeto</p>
+npm install
+
+<p>Para rodar o projeto na máquina:</p>
+npm run dev
+
+<p>Para visualizar no browser:</p>
+localhost:3000
 
 <img  src="https://github.com/kasvrol/processo-seletivo-at-group/blob/main/public/gif.gif" alt="gif do front respondendo a paginação criada"/>
