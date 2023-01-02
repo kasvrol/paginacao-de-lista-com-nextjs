@@ -16,7 +16,7 @@ export default function Cards({ projectsPage, projects }) {
             }
             return setShowProjects(selectProject);
         }
-    }, [projectsPage]);
+    }, [projectsPage, projects]);
 
     function icon(language) {
         switch (language) {
