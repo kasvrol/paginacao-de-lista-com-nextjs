@@ -4,7 +4,7 @@ export default function Menu() {
     const menuOptions = () => {
         let arrayOption = [];
         for (let index = 1; index < 10; index++) {
-            arrayOption.push(<li>Opção {index}</li>);
+            arrayOption.push(<li key={index}>Opção {index}</li>);
         }
 
         return arrayOption;
