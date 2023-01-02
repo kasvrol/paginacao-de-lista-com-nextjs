@@ -1,10 +1,10 @@
 {
-	"homepage": "https://kasvrol.github.io/paginacao-de-lista-com-nextjs/",
+	"homepage": "https://kasvrol.github.io/paginacao-de-lista-com-nextjs",
 	"name": "paginacao-de-lista-com-nextjs",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"deploy": "gh-pages -d .next/static/pages",
+		"deploy": "gh-pages -d ./.next/static",
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
