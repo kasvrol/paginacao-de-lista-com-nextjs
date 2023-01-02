@@ -5,7 +5,6 @@ import { HiOutlineSearch, HiUsers } from "react-icons/hi";
 import { env } from "../../next.config";
 
 export default function Header() {
-    const githubAPI = "https://api.github.com/users/kasvrol";
     const [img, setImg] = useState("./1.png");
 
     useEffect(() => {
