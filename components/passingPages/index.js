@@ -4,8 +4,18 @@ import { useState, useEffect } from "react";
 
 export default function Pages({ projectsLength, changePage }) {
     const [atualPage, setAtualPage] = useState(1);
+    const [disableavigateBefore, setDisableavigateBefore] = useState(false);
+    const [disableavigateNext, setDisableavigateNext] = useState(false);
     const firstPage = 1;
     const lastPage = projectsLength / 5;
+
+    useEffect(() => {
+        if (atualPage === firstPage) {
+            setDisableavigateBefore(true);
+        } else if (atualPage === lastPage) {
+            setDisableavigateNext(true);
+        }
+    }, [atualPage]);
 
     const changePages = (option) => {
         if (option === "next" && atualPage !== lastPage) {
@@ -19,13 +29,21 @@ export default function Pages({ projectsLength, changePage }) {
 
     return (
         <section className={styles.pagesContainer}>
-            <section onClick={() => changePages("before")}>
-                <MdNavigateBefore />
-            </section>
+            {disableavigateBefore ? (
+                <></>
+            ) : (
+                <section onClick={() => changePages("before")}>
+                    <MdNavigateBefore />
+                </section>
+            )}
             <section>{atualPage}</section>
-            <section onClick={() => changePages("next")}>
-                <MdNavigateNext />
-            </section>
+            {disableavigateNext ? (
+                <></>
+            ) : (
+                <section onClick={() => changePages("next")}>
+                    <MdNavigateNext />
+                </section>
+            )}
         </section>
     );
 }
