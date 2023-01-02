@@ -10,7 +10,21 @@
 
 <p>O projeto foi criado em 3h, após entrega para análise e retorno do processo, elaborei mudanças para o manter como projeto de exposição e agregar em meu portfólio.</p>
 
-<h3>Rápida introdução de como rodar o projeto:</h3>
+<h3>Apresentação do projeto:</h3>
+
+<img  src="https://github.com/kasvrol/processo-seletivo-at-group/blob/main/public/gif.gif" alt="gif do front respondendo a paginação criada"/>
+
+<h3>Sobre:</h3>
+<ul>
+<li>Next.js (React.js)</li>
+<li>Node.js</li>
+<li>Javascript</li>
+<li>Git (versionamento)</li>
+<li><a href="https://react-icons.github.io/react-icons/">React Icons</a></li>
+</ul>
+
+<h3>Como rodar o projeto em sua máquina:</h3>
+
 <p>Clone o projeto no terminal do git:</p>
 git clone https://github.com/kasvrol/paginacao-de-lista-com-nextjs
 
@@ -30,4 +44,5 @@ git clone https://github.com/kasvrol/paginacao-de-lista-com-nextjs
 
 `localhost:3000`
 
-<img  src="https://github.com/kasvrol/processo-seletivo-at-group/blob/main/public/gif.gif" alt="gif do front respondendo a paginação criada"/>
+<h3>Autoria:</h3>
+<a href="https://github.com/kasvrol">Ana Karolina</a>
