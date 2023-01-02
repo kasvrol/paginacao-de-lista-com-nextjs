@@ -4,18 +4,13 @@ import { useState, useEffect } from "react";
 
 export default function Pages({ projectsLength, changePage }) {
     const [atualPage, setAtualPage] = useState(1);
-
-    useEffect(() => {
-        if (projectsLength > 5) {
-            console.log(projectsLength);
-        }
-    }, [projectsLength]);
+    const firstPage = 1;
+    const lastPage = projectsLength / 5;
 
     const changePages = (option) => {
-        console.log(option);
-        if (option === "next" && projectsLength / 5 != atualPage) {
+        if (option === "next" && atualPage !== lastPage) {
             setAtualPage(atualPage + 1);
-        } else if (option === "before" && atualPage != 1) {
+        } else if (option === "before" && atualPage !== firstPage) {
             setAtualPage(atualPage - 1);
         }
     };
