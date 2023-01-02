@@ -2,42 +2,44 @@ import styles from "../../styles/Pages.module.css";
 import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
 import { useState, useEffect } from "react";
 
-export default function Pages({ projectsLength, changePage }) {
-    const [atualPage, setAtualPage] = useState(1);
-    const [disableavigateBefore, setDisableavigateBefore] = useState(false);
-    const [disableavigateNext, setDisableavigateNext] = useState(false);
+export default function Pages({ projectsLength, changePage, indexPage }) {
+    const [disableNavigateBefore, setDisableNavigateBefore] = useState(false);
+    const [disableNavigateNext, setDisableNavigateNext] = useState(false);
     const firstPage = 1;
     const lastPage = projectsLength / 5;
 
     useEffect(() => {
-        if (atualPage === firstPage) {
-            setDisableavigateBefore(true);
-        } else if (atualPage === lastPage) {
-            setDisableavigateNext(true);
+        switch (indexPage) {
+            case firstPage:
+                return setDisableNavigateBefore(true);
+            case lastPage:
+                return setDisableNavigateNext(true);
+            default:
+                setDisableNavigateBefore(true);
+                setDisableNavigateNext(false);
+                break;
         }
-    }, [atualPage]);
+    }, [indexPage]);
 
     const changePages = (option) => {
-        if (option === "next" && atualPage !== lastPage) {
-            setAtualPage(atualPage + 1);
-        } else if (option === "before" && atualPage !== firstPage) {
-            setAtualPage(atualPage - 1);
+        if (option === "next" && indexPage !== lastPage) {
+            changePage(indexPage + 1);
+        } else if (option === "before" && indexPage !== firstPage) {
+            changePage(indexPage - 1);
         }
     };
 
-    changePage(atualPage);
-
     return (
         <section className={styles.pagesContainer}>
-            {disableavigateBefore ? (
+            {disableNavigateBefore ? (
                 <></>
             ) : (
                 <section onClick={() => changePages("before")}>
                     <MdNavigateBefore />
                 </section>
             )}
-            <section>{atualPage}</section>
-            {disableavigateNext ? (
+            <section>{indexPage}</section>
+            {disableNavigateNext ? (
                 <></>
             ) : (
                 <section onClick={() => changePages("next")}>

@@ -30,6 +30,8 @@ export default function Home() {
         setPage(page);
     };
 
+    console.log(projectsLength)
+
     return (
         <>
             <Head>
@@ -46,7 +48,7 @@ export default function Home() {
                 <Cards projectsPage={page} projects={projects} />
             </main>
             <footer className={styles.footer}>
-                {showPage ? <Pages projectsLength={projectsLength} changePage={changePage} /> : <></>}
+                {showPage ? <Pages projectsLength={projectsLength} changePage={changePage} indexPage={page} /> : <></>}
             </footer>
         </>
     );
