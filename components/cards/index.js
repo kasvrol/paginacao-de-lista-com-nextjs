@@ -4,14 +4,37 @@ import styles from "../../styles/Cards.module.css";
 export default function Cards({ qtdProjects, projectsPage }) {
     const reposGitHubAPI = "https://api.github.com/users/kasvrol/repos";
     const [projects, setProjects] = useState();
+    const [projectsLength, setProjectsLength] = useState(0);
+    const [showProjects, setShowProjects] = useState([]);
 
     useEffect(() => {
         (async () => {
             const response = await fetch(reposGitHubAPI);
             const data = await response.json();
             setProjects(data);
+            setProjectsLength(data.length)
         })();
     }, []);
+
+    useEffect(() => {
+        if (projects) {
+            () => {
+                let projectsArray = []
+                let oneProject = projectsPage * 5 - 5;
+                let totalPages = projectsPage * 5;
+                for (let index = 0; index < totalPages; index++) {
+                    if (oneProject <= index) {
+                        projectsArray.push(projects[index]);
+                    }
+                }
+                return setShowProjects(projectsArray);
+            }
+        }
+    }, [projectsPage]);
+
+    console.log('projects', projects)
+    console.log('showProjects', showProjects)
+    console.log('projectsLength', projectsLength)
 
     function icon(language) {
         switch (language) {
@@ -36,21 +59,34 @@ export default function Cards({ qtdProjects, projectsPage }) {
         return `${day}/${month}/${year}`;
     };
 
-    if (projects) {
-        qtdProjects(projects.length);
+    const existProjects = () => {
+        return (<>
+            {showProjects.map((element) => (
+                <ul key={element.id} className={styles.CardContainer}>
+                    <li>
+                        <img
+                            src={icon(element.language)}
+                            alt="Icone de registro"
+                        />
+                    </li>
+                    <li>{element.name}</li>
+                    <li>{element.language} </li>
+                    <li>{formatDate(element.updated_at)}</li>
+                    <li>{element.id}</li>
+                    <li>{element.size}</li>
+                </ul>
+            ))}</>)
+    };
 
-        const showProjects = () => {
-            let showProjects = [];
-            let oneProject = projectsPage * 5 - 5;
-            let totalPages = projectsPage * 5;
-            for (let index = 0; index < totalPages; index++) {
-                if (oneProject <= index) {
-                    showProjects.push(projects[index]);
-                }
-            }
-            return showProjects;
-        };
+    const dontExistProjects = () => {
+        return (
+            <section className={styles.NoCardsList}>
+                <p>Não existe repositório listado</p>
+            </section>)
+    };
 
+    const containerProjects = () => {
+        qtdProjects(projectsLength);
         return (
             <section className={styles.CardsList}>
                 <ul className={styles.CardInformation}>
@@ -60,28 +96,9 @@ export default function Cards({ qtdProjects, projectsPage }) {
                     <li>Id</li>
                     <li>Tamanho</li>
                 </ul>
-                {showProjects().map((element) => (
-                    <ul key={element.id} className={styles.CardContainer}>
-                        <li>
-                            <img
-                                src={icon(element.language)}
-                                alt="Icone de registro"
-                            />
-                        </li>
-                        <li>{element.name}</li>
-                        <li>{element.language} </li>
-                        <li>{formatDate(element.updated_at)}</li>
-                        <li>{element.id}</li>
-                        <li>{element.size}</li>
-                    </ul>
-                ))}
-            </section>
-        );
-    } else {
-        return (
-            <section className={styles.NoCardsList}>
-                <p>Não existe repositório listado</p>
-            </section>
-        );
-    }
+                {showProjects.length === 0 ? dontExistProjects() : existProjects()}
+            </section>)
+    };
+
+    return containerProjects();
 }
