@@ -2,18 +2,18 @@ import styles from "../../styles/Pages.module.css";
 import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
 import { useState, useEffect } from "react";
 
-export default function Pages({ qtdProjects, changePage }) {
+export default function Pages({ projectsLength, changePage }) {
     const [atualPage, setAtualPage] = useState(1);
 
     useEffect(() => {
-        if (qtdProjects > 5) {
-            console.log(qtdProjects);
+        if (projectsLength > 5) {
+            console.log(projectsLength);
         }
-    }, [qtdProjects]);
+    }, [projectsLength]);
 
     const changePages = (option) => {
         console.log(option);
-        if (option === "next" && qtdProjects / 5 != atualPage) {
+        if (option === "next" && projectsLength / 5 != atualPage) {
             setAtualPage(atualPage + 1);
         } else if (option === "before" && atualPage != 1) {
             setAtualPage(atualPage - 1);

@@ -7,12 +7,19 @@ import styles from "../styles/Home.module.css";
 import { useState, useEffect } from "react";
 
 export default function Home() {
+    const [projects, setProjects] = useState();
+    const [projectsLength, setProjectsLength] = useState(0);
     const [page, setPage] = useState(1);
-    const [item, setItem] = useState(0);
+    const reposGitHubAPI = "https://api.github.com/users/kasvrol/repos";
 
-    const qtdProjects = (qtd) => {
-        setItem(qtd);
-    };
+    useEffect(() => {
+        (async () => {
+            const response = await fetch(reposGitHubAPI);
+            const data = await response.json();
+            setProjects(data);
+            setProjectsLength(data.length)
+        })();
+    }, []);
 
     const changePage = (page) => {
         setPage(page);
@@ -31,10 +38,10 @@ export default function Home() {
             <Header />
             <main className={styles.main}>
                 <Menu />
-                <Cards qtdProjects={qtdProjects} projectsPage={page} />
+                <Cards projectsPage={page} projects={projects} />
             </main>
             <footer className={styles.footer}>
-                <Pages qtdProjects={item} changePage={changePage} />
+                <Pages projectsLength={projectsLength} changePage={changePage} />
             </footer>
         </>
     );

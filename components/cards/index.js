@@ -1,20 +1,8 @@
 import { useState, useEffect } from "react";
 import styles from "../../styles/Cards.module.css";
 
-export default function Cards({ qtdProjects, projectsPage }) {
-    const reposGitHubAPI = "https://api.github.com/users/kasvrol/repos";
-    const [projects, setProjects] = useState();
-    const [projectsLength, setProjectsLength] = useState(0);
+export default function Cards({ projectsPage, projects, projectsLength }) {
     const [showProjects, setShowProjects] = useState([]);
-
-    useEffect(() => {
-        (async () => {
-            const response = await fetch(reposGitHubAPI);
-            const data = await response.json();
-            setProjects(data);
-            setProjectsLength(data.length)
-        })();
-    }, []);
 
     useEffect(() => {
         if (projects) {
@@ -86,7 +74,6 @@ export default function Cards({ qtdProjects, projectsPage }) {
     };
 
     const containerProjects = () => {
-        qtdProjects(projectsLength);
         return (
             <section className={styles.CardsList}>
                 <ul className={styles.CardInformation}>
