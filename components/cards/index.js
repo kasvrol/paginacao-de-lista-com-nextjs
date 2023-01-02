@@ -6,15 +6,15 @@ export default function Cards({ projectsPage, projects }) {
 
     useEffect(() => {
         if (projects) {
-            let projectsArray = []
-            let oneProject = projectsPage * 5 - 5;
+            let selectProject = []
+            let firstProject = projectsPage * 5 - 5;
             let totalPages = projectsPage * 5;
             for (let index = 0; index < totalPages; index++) {
-                if (oneProject <= index) {
-                    projectsArray.push(projects[index]);
+                if (firstProject <= index) {
+                    selectProject.push(projects[index]);
                 }
             }
-            return setShowProjects(projectsArray);
+            return setShowProjects(selectProject);
         }
     }, [projectsPage]);
 
