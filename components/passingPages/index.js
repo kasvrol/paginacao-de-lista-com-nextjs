@@ -3,20 +3,20 @@ import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
 import { useState, useEffect } from "react";
 
 export default function Pages({ projectsLength, changePage, indexPage }) {
-    const [disableNavigateBefore, setDisableNavigateBefore] = useState(false);
-    const [disableNavigateNext, setDisableNavigateNext] = useState(false);
+    const [disableNavigateBefore, setDisableNavigateBefore] = useState(true);
+    const [disableNavigateNext, setDisableNavigateNext] = useState(true);
     const firstPage = 1;
     const lastPage = projectsLength / 5;
 
     useEffect(() => {
         switch (indexPage) {
             case firstPage:
-                return setDisableNavigateBefore(true);
+                return setDisableNavigateBefore(false);
             case lastPage:
-                return setDisableNavigateNext(true);
+                return setDisableNavigateNext(false);
             default:
                 setDisableNavigateBefore(true);
-                setDisableNavigateNext(false);
+                setDisableNavigateNext(true);
                 break;
         }
     }, [indexPage, projectsLength]);
@@ -29,24 +29,37 @@ export default function Pages({ projectsLength, changePage, indexPage }) {
         }
     };
 
-    return (
-        <>{projectsLength ? <section className={styles.pagesContainer}>
-            {disableNavigateBefore ? (
-                <></>
-            ) : (
+    const beforePage = () => {
+        if (disableNavigateBefore) {
+            return (
                 <section onClick={() => changePages("before")}>
                     <MdNavigateBefore />
                 </section>
-            )}
-            <section>{indexPage}</section>
-            {disableNavigateNext ? (
-                <></>
-            ) : (
+            );
+        }
+    };
+
+    const nextPage = () => {
+        if (disableNavigateNext) {
+            return (
                 <section onClick={() => changePages("next")}>
                     <MdNavigateNext />
                 </section>
-            )}
-        </section> : <></>}</>
+            );
+        }
+    };
 
+    return (
+        <>
+            {projectsLength ? (
+                <section className={styles.pagesContainer}>
+                    {beforePage()}
+                    <section>{indexPage}</section>
+                    {nextPage()}
+                </section>
+            ) : (
+                <></>
+            )}
+        </>
     );
 }
