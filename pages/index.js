@@ -9,7 +9,6 @@ import { useState, useEffect } from "react";
 export default function Home() {
     const [projects, setProjects] = useState();
     const [projectsLength, setProjectsLength] = useState(0);
-    const [showPage, setShowPage] = useState(false);
     const [page, setPage] = useState(1);
     const reposGitHubAPI = "https://api.github.com/users/kasvrol/repos";
 
@@ -20,10 +19,6 @@ export default function Home() {
             setProjects(data);
             setProjectsLength(data.length)
         })();
-
-        if (5 < projectsLength) {
-            setShowPage(true)
-        }
     }, []);
 
     const changePage = (page) => {
@@ -48,7 +43,7 @@ export default function Home() {
                 <Cards projectsPage={page} projects={projects} />
             </main>
             <footer className={styles.footer}>
-                {showPage ? <Pages projectsLength={projectsLength} changePage={changePage} indexPage={page} /> : <></>}
+                <Pages projectsLength={projectsLength} changePage={changePage} indexPage={page} />
             </footer>
         </>
     );

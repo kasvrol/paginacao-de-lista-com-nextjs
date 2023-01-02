@@ -19,7 +19,7 @@ export default function Pages({ projectsLength, changePage, indexPage }) {
                 setDisableNavigateNext(false);
                 break;
         }
-    }, [indexPage]);
+    }, [indexPage, projectsLength]);
 
     const changePages = (option) => {
         if (option === "next" && indexPage !== lastPage) {
@@ -30,7 +30,7 @@ export default function Pages({ projectsLength, changePage, indexPage }) {
     };
 
     return (
-        <section className={styles.pagesContainer}>
+        <>{projectsLength ? <section className={styles.pagesContainer}>
             {disableNavigateBefore ? (
                 <></>
             ) : (
@@ -46,6 +46,7 @@ export default function Pages({ projectsLength, changePage, indexPage }) {
                     <MdNavigateNext />
                 </section>
             )}
-        </section>
+        </section> : <></>}</>
+
     );
 }
