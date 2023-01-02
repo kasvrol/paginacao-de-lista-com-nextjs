@@ -2,7 +2,7 @@ import Head from "next/head";
 import Cards from "../components/cards";
 import Header from "../components/header";
 import Menu from "../components/menu";
-import Pages from "../components/pagess";
+import Pages from "../components/passingPages";
 import styles from "../styles/Home.module.css";
 import { useState, useEffect } from "react";
 
