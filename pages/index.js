@@ -25,8 +25,6 @@ export default function Home() {
         setPage(page);
     };
 
-    console.log(projectsLength)
-
     return (
         <>
             <Head>
