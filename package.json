@@ -1,22 +1,21 @@
 {
-    "homepage": "https://kasvrol.github.io/processo-seletivo-at-group/",
-    "name": "processo-seletivo-at-group",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d build",
-        "dev": "next dev",
-        "build": "next build",
-        "start": "next start",
-        "lint": "next lint"
-    },
-    "dependencies": {
-        "@next/font": "13.1.1",
-        "next": "13.1.1",
-        "react": "18.2.0",
-        "react-dom": "18.2.0",
-        "react-icons": "^4.7.1",
-        "gh-pages": "^4.0.0"
-    }
+	"homepage": "https://kasvrol.github.io/paginacao-de-lista-com-nextjs/",
+	"name": "paginacao-de-lista-com-nextjs",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"deploy": "gh-pages -d .next/static/pages",
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@next/font": "13.1.1",
+		"next": "13.1.1",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-icons": "^4.7.1",
+		"gh-pages": "^4.0.0"
+	}
 }
