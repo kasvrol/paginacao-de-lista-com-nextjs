@@ -20,10 +20,6 @@ export default function Cards({ projectsPage, projects, projectsLength }) {
         }
     }, [projectsPage]);
 
-    console.log('projects', projects)
-    console.log('showProjects', showProjects)
-    console.log('projectsLength', projectsLength)
-
     function icon(language) {
         switch (language) {
             case "HTML":
