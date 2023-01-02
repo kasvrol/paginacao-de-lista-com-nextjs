@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "../../styles/Header.module.css";
 import { AiFillBell } from "react-icons/ai";
 import { HiOutlineSearch, HiUsers } from "react-icons/hi";
+import { env } from "../../next.config";
 
 export default function Header() {
     const githubAPI = "https://api.github.com/users/kasvrol";
@@ -9,7 +10,7 @@ export default function Header() {
 
     useEffect(() => {
         (async () => {
-            const response = await fetch(githubAPI);
+            const response = await fetch(env.profileGithubAPI);
             const data = await response.json();
             setImg(data);
         })();
