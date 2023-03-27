@@ -11,7 +11,7 @@
 <p>O projeto foi criado em 3h, após entrega para análise e retorno do processo, elaborei mudanças para o manter como projeto de exposição e agregar em meu portfólio.</p>
 
 <h3>Apresentação do projeto 📺</h3>
-
+<p>(pode existir delay no carregamento do gif de apresentação da interface)</p>
 <img  src="https://github.com/kasvrol/processo-seletivo-at-group/blob/main/public/gif.gif" alt="gif do front respondendo a paginação criada"/>
 
 <h3>Ferramentas  ⚙️</h3>
