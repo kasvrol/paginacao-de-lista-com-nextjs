@@ -41,7 +41,7 @@ export default function Cards({ projectsPage, projects }) {
         return `${day}/${month}/${year}`;
     };
 
-    const existProjects = () => {
+    const thereAreProjects = () => {
         return (<>
             {showProjects.map((element) => (
                 <ul key={element.id} className={styles.CardContainer}>
@@ -60,7 +60,7 @@ export default function Cards({ projectsPage, projects }) {
             ))}</>)
     };
 
-    const dontExistProjects = () => {
+    const thereArentProjects = () => {
         return (
             <section className={styles.NoCardsList}>
                 <p>Não existe repositório listado</p>
@@ -71,13 +71,12 @@ export default function Cards({ projectsPage, projects }) {
         return (
             <section className={styles.CardsList}>
                 <ul className={styles.CardInformation}>
-                    <li>Nome</li>
                     <li>Linguagem</li>
                     <li>Última modificação</li>
                     <li>Id</li>
                     <li>Tamanho</li>
                 </ul>
-                {showProjects.length === 0 ? dontExistProjects() : existProjects()}
+                {showProjects.length === 0 ? thereArentProjects() : thereAreProjects()}
             </section>)
     };
 
